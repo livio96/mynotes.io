@@ -23,15 +23,13 @@
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (Note_Id,NoteTitle,NoteDate)=>{
+        var callAPI = (NoteTitle,NoteDate)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
-           var Note_Id = Math.floor((Math.random()*1000000)+1);            
-            
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"ID":Note_id,NoteTitle":NoteTitle,"NoteDate":NoteDate});
+            var raw = JSON.stringify({"NoteTitle":NoteTitle,"NoteDate":NoteDate});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -49,15 +47,12 @@
 </head>
 <body>
     <form>
-        <label>First Name :</label>
+        <label>Note Title :</label>
         <input type="text" id="NoteTitle">
-        <label>Last Name :</label>
+        <label>Note Date :</label>
         <input type="text" id="NoteDate">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(
-                                       document.getElementById('ID'),
-                                       document.getElementById('NoteTitle').value,
-                                       document.getElementById('NoteDate').value)">Call API</button>
+        <button type="button" onclick="callAPI(document.getElementById('NoteTitle').value,document.getElementById('NoteDate').value)">Call API</button>
     </form>
 </body>
 </html>
