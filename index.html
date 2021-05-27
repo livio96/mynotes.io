@@ -23,13 +23,15 @@
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (note_id,NoteTitle,NoteDate)=>{
+        var callAPI = (Note_Id,NoteTitle,NoteDate)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
+           var Note_Id = Math.floor((Math.random()*1000000)+1);            
+            
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"NoteTitle":NoteTitle,"NoteDate":NoteDate});
+            var raw = JSON.stringify({"ID":Note_id,NoteTitle":NoteTitle,"NoteDate":NoteDate});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
