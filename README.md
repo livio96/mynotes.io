@@ -1,6 +1,6 @@
 # [AdminLTE - Bootstrap 4 Admin Dashboard](https://adminlte.io)
 
-[![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
+/* [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
 [![cdn version](https://data.jsdelivr.com/v1/package/npm/admin-lte/badge)](https://www.jsdelivr.com/package/npm/admin-lte)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
@@ -123,3 +123,5 @@ AdminLTE.io reserves the right to change the license of future releases.
 - [Pickaface](https://pickaface.net/)
 - [Unsplash](https://unsplash.com/)
 - [Uifaces](http://uifaces.com/)
+
+*/
