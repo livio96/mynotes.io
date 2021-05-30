@@ -14,13 +14,13 @@
 
    <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (NoteTitle,NoteDescription)=>{
+        var callAPI = (NoteTitle,GeneralDescription, DetailedDescription)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"NoteTitle":NoteTitle,"NoteDescription":NoteDescription});
+            var raw = JSON.stringify({"NoteTitle":NoteTitle,"GeneralDescription":GeneralDescription, "DetailedDescription": DetailedDescription});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -859,12 +859,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Project Add</h1>
+            <h1>New Note</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Project Add</li>
+              <li class="breadcrumb-item active">New Note</li>
             </ol>
           </div>
         </div>
@@ -877,7 +877,7 @@
         <div class="col-md-6">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">General</h3>
+              <h3 class="card-title">General Information</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -887,30 +887,29 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Note Title</label>
+                <label for="inputName">Title</label>
                 <input type="text" id="NoteTitle" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputDescription">Description</label>
-                <textarea id="NoteDescription" class="form-control" rows="4"></textarea>
+                <label for="inputDescription">General Description/ Agenda</label>
+                <textarea id="GeneralDescription" class="form-control" rows="4"></textarea>
               </div>
+
               <div class="form-group">
+                <label for="inputDescription">Detailed Description</label>
+                <textarea id="DetailedDescription" class="form-control" rows="4"></textarea>
+              </div>
+            <!--  <div class="form-group">
                 <label for="inputStatus">Status</label>
                 <select id="inputStatus" class="form-control custom-select">
                   <option selected disabled>Select one</option>
-                  <option>On Hold</option>
-                  <option>Canceled</option>
-                  <option>Success</option>
+                  <option>Completed</option>
+                  <option>In Progress</option>
+                  <option>Cancelled</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label for="inputClientCompany">Client Company</label>
-                <input type="text" id="inputClientCompany" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Project Leader</label>
-                <input type="text" id="inputProjectLeader" class="form-control">
-              </div>
+            -->
+
             </div>
             <!-- /.card-body -->
           </div>
@@ -919,7 +918,7 @@
         <div class="col-md-6">
           <div class="card card-secondary">
             <div class="card-header">
-              <h3 class="card-title">Budget</h3>
+              <h3 class="card-title">Other Information</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -929,18 +928,10 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputEstimatedBudget">Estimated budget</label>
+                <label for="inputEstimatedBudget">Estimated Meeting Duration (Hours)</label>
                 <input type="number" id="inputEstimatedBudget" class="form-control">
               </div>
-              <div class="form-group">
-                <label for="inputSpentBudget">Total amount spent</label>
-                <input type="number" id="inputSpentBudget" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputEstimatedDuration">Estimated project duration</label>
-                <input type="number" id="inputEstimatedDuration" class="form-control">
-              </div>
-            </div>
+            
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
@@ -948,8 +939,11 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
-          <input onclick="callAPI(document.getElementById('NoteTitle').value,document.getElementById('NoteDescription').value)" type="submit" value="Create new Note" class="btn btn-success float-right">
+         <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
+          <input onclick="callAPI(
+            document.getElementById('NoteTitle').value,
+          document.getElementById('GeneralDescription').value,
+          document.getElementById('DetailedDescription').value)" type="submit" value="Create new Note" class="btn btn-success float-right">
         </div>
       </div>
     </section>
@@ -959,9 +953,9 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
+      <b>Version</b> 1.1.0
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021 <a href="https://www.linkedin.com/in/livio-beqiri-a53915139">Livio Beqiri</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
