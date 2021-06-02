@@ -64,7 +64,7 @@ function download_table_as_csv(table_id, separator = ',') {
 
             clearData();
             var tr;
-            var link = $('<td><a href="UpdateCase.html">Update Case</a></td>');
+            var link = $('<td><a href="updateNotes.html">Update Note</a></td>');
             let today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); 
@@ -84,11 +84,11 @@ function download_table_as_csv(table_id, separator = ',') {
               var NoteID_filter = document.getElementById("NoteID").value; 
              
               //Customize table view
-              var NoteTitle_checkbox = document.getElementById("NoteTitle-checkbox").checked;
+           /*   var NoteTitle_checkbox = document.getElementById("NoteTitle-checkbox").checked;
               var NoteID_checkbox = document.getElementById("NoteID-checkbox").checked;
               var GeneralDescription_checkbox = document.getElementById("GeneralDescription-checkbox").checked;
               var DetailedDescription_checkbox = document.getElementById("DetailedDescription-checkbox").checked;
-
+            */
          
             
             for (var i = 0; i < response.body.length; i++) {
@@ -103,7 +103,7 @@ function download_table_as_csv(table_id, separator = ',') {
                      localStorage.setItem("StorageItem",case_id_text);
                      //document.location.href='UpdateCase.html'
                      window.open(
-                     'updatecase.html',
+                     'Updatenotes.html',
                      '_blank' 
             );
                       
@@ -112,50 +112,22 @@ function download_table_as_csv(table_id, separator = ',') {
             
                 if((response.body[i].NoteTitle == NoteTitle_filter || NoteTitle_filter == '' ) 
                 && (response.body[i].ID == NoteID_filter || NoteID_filter == '')) {
+                  tr.append('<a class="btn btn-info btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-pencil-alt"></i>Edit </a> ')
 
-            tr.append(button);
-            //Start if/else
-            if(NoteTitle_checkbox == false)
-               document.getElementById("NoteTitle-header").style.display = 'none';
-            else {
-               document.getElementById("NoteTitle-header").style.display != 'none';
-               tr.append("<td>" + response.body[i].NoteTitle + "</td>");
-             
-            } //end if/else
-
-            //Start If/else
-            if(NoteID_checkbox == false)
-               document.getElementById("NoteID-header").style.display = 'none';
-            else {
-               document.getElementById("NoteID-header").style.display != 'none';
+                tr.append(button);
+               //Start if/else
+               //     if(NoteTitle_checkbox == false)
+               //     document.getElementById("NoteTitle-header").style.display = 'none';
+               //  else {
+               //    document.getElementById("NoteTitle-header").style.display != 'none';
                tr.append("<td>" + response.body[i].ID + "</td>");
-              
-            } // End if/else
-
-             //Start If/else
-             if(GeneralDescription_checkbox == false)
-               document.getElementById("GeneralDescription-header").style.display = 'none';
-            else {
-               document.getElementById("GeneralDescription-header").style.display != 'none';
+               tr.append("<td>" + response.body[i].NoteTitle + "</td>");
                tr.append("<td>" + response.body[i].GeneralDescription + "</td>");
-              
-            } // End if/else
-
-             //Start If/else
-             if(DetailedDescription_checkbox == false)
-               document.getElementById("DetailedDescription-header").style.display = 'none';
-            else {
-               document.getElementById("DetailedDescription-header").style.display != 'none';
                tr.append("<td>" + response.body[i].DetailedDescription + "</td>");
-             
-            } // End if/else
-            
-
-            $('table').append(tr);
+               $('table').append(tr);
                 }
 
-                tr.append('<a class="btn btn-primary btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-folder"></i>View </a> ')
-               tr.append('<a class="btn btn-info btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-pencil-alt"></i>Edit </a> ')
+                  tr.append('<a class="btn btn-primary btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-folder"></i>View </a> ')
                tr.append('<a class="btn btn-danger btn-sm" href="#" style="margin-top:10px;"> <i class="fas-fa-trash"></i>Delete </a> ')
             }
             
@@ -261,9 +233,9 @@ function download_table_as_csv(table_id, separator = ',') {
                               </a>
                            </li>
                            <li class="nav-item">
-                              <a href="updatecase.html" class="nav-link">
+                              <a href="UpdateNotes.html" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Update A Case</p>
+                                 <p>Update A Note</p>
                               </a>
                            </li>
                         </ul>
@@ -494,7 +466,7 @@ function download_table_as_csv(table_id, separator = ',') {
             <!--Filter section ends here -->
             <!-- Main content -->
             <div class="card card-default">
-               <div class="card-header">
+             <!--  <div class="card-header">
                   <h3 class="card-title">Customize Table View</h3>
                   <div class="card-tools">
                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -504,14 +476,14 @@ function download_table_as_csv(table_id, separator = ',') {
                      <i class="fas fa-times"></i>
                      </button>
                   </div>
-               </div>
+               </div> -->
                <!-- Filter section starts here -->
                <!-- /.card-header -->
                <div class="card-body">
-                  <div class="row">
+                 <div class="row">
                      <div class="col-md-3">
                          
-                        <div class="icheck-primary d-inline">
+                       <!--   <div class="icheck-primary d-inline">
                            <input type="checkbox" id="NoteTitle-checkbox" checked>
                            <label for="checkboxPrimary1">Note Title</label>
                         </div>
@@ -521,21 +493,19 @@ function download_table_as_csv(table_id, separator = ',') {
                               <label for="checkboxPrimary1">Note ID</label>
                            </div>
                         </div>
-                        <!-- /.form-group -->
                         <div class="form-group clearfix">
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="GeneralDescription-checkbox" checked>
                               <label for="checkboxPrimary1">General Description</label>
                            </div>
                         </div>
-                        <!-- /.form-group -->
                      </div>
                      <div class="col-md-3">
                         <div class="icheck-primary d-inline">
                            <input type="checkbox" id="DetailedDescription-checkbox" checked>
                            <label for="checkboxPrimary1">Detailed Description</label>
-                        </div>
-                       <!-- <div>
+                        </div> 
+                      <div>
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="DealEffectiveDate-checkbox" checked>
                               <label for="checkboxPrimary1">Deal Effective Date</label>
