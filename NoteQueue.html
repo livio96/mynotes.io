@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CIDverse</title>
+      <title>MyNotes.io</title>
       <script>
 
 function download_table_as_csv(table_id, separator = ',') {
@@ -114,21 +114,49 @@ function download_table_as_csv(table_id, separator = ',') {
                 && (response.body[i].ID == NoteID_filter || NoteID_filter == '')) {
 
             tr.append(button);
+            //Start if/else
             if(NoteTitle_checkbox == false)
                document.getElementById("NoteTitle-header").style.display = 'none';
             else {
                document.getElementById("NoteTitle-header").style.display != 'none';
                tr.append("<td>" + response.body[i].NoteTitle + "</td>");
+             
+            } //end if/else
+
+            //Start If/else
+            if(NoteID_checkbox == false)
+               document.getElementById("NoteID-header").style.display = 'none';
+            else {
+               document.getElementById("NoteID-header").style.display != 'none';
+               tr.append("<td>" + response.body[i].ID + "</td>");
+              
+            } // End if/else
+
+             //Start If/else
+             if(GeneralDescription_checkbox == false)
+               document.getElementById("GeneralDescription-header").style.display = 'none';
+            else {
+               document.getElementById("GeneralDescription-header").style.display != 'none';
                tr.append("<td>" + response.body[i].GeneralDescription + "</td>");
+              
+            } // End if/else
+
+             //Start If/else
+             if(DetailedDescription_checkbox == false)
+               document.getElementById("DetailedDescription-header").style.display = 'none';
+            else {
+               document.getElementById("DetailedDescription-header").style.display != 'none';
                tr.append("<td>" + response.body[i].DetailedDescription + "</td>");
-               tr.append('<a class="btn btn-primary btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-folder"></i>View </a> ')
-               tr.append('<a class="btn btn-info btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-pencil-alt"></i>Edit </a> ')
-               tr.append('<a class="btn btn-danger btn-sm" href="#" style="margin-top:10px;"> <i class="fas-fa-trash"></i>Delete </a> ')
-            }
+             
+            } // End if/else
             
 
             $('table').append(tr);
                 }
+
+                tr.append('<a class="btn btn-primary btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-folder"></i>View </a> ')
+               tr.append('<a class="btn btn-info btn-sm" href="#" style="margin-right:10px; margin-top:10px;"> <i class="fas fa-pencil-alt"></i>Edit </a> ')
+               tr.append('<a class="btn btn-danger btn-sm" href="#" style="margin-top:10px;"> <i class="fas-fa-trash"></i>Delete </a> ')
             }
             
             });
@@ -182,7 +210,7 @@ function download_table_as_csv(table_id, separator = ',') {
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
             <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">CDIverse</span>
+            <span class="brand-text font-weight-light">MyNotes.io</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -190,7 +218,7 @@ function download_table_as_csv(table_id, separator = ',') {
                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                  
                   <div class="info">
-                     <a href="#" class="d-block">Klesti Beqiri</a>
+                     <a href="#" class="d-block">Livio Beqiri</a>
                   </div>
                </div>
                <!-- SidebarSearch Form -->
@@ -507,56 +535,57 @@ function download_table_as_csv(table_id, separator = ',') {
                            <input type="checkbox" id="DetailedDescription-checkbox" checked>
                            <label for="checkboxPrimary1">Detailed Description</label>
                         </div>
-                        <div>
+                       <!-- <div>
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="DealEffectiveDate-checkbox" checked>
                               <label for="checkboxPrimary1">Deal Effective Date</label>
                            </div>
-                        </div>
+                        </div>  -->
                         <!-- /.form-group -->
-                        <div class="form-group clearfix">
+                       <!-- <div class="form-group clearfix">
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="OnboardingType-checkbox" checked>
                               <label for="checkboxPrimary1">Onboarding Type</label>
                            </div>
-                        </div>
+                        </div>  -->
                         <!-- /.form-group -->
                      </div>
                      <!-- /.col -->
+                     <!-- Column-->
                      <div class="col-md-3">
-                        <div class="icheck-primary d-inline">
+                      <!--  <div class="icheck-primary d-inline">
                            <input type="checkbox" id="DealRequestType-checkbox" checked>
                            <label for="checkboxPrimary1">Deal Request Type</label>
-                        </div>
-                        <div>
+                        </div> -->
+                       <!-- <div>
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="CaseStatus-checkbox" checked>
                               <label for="checkboxPrimary1">Case Status</label>
                            </div>
-                        </div>
+                        </div>  -->
                         <!-- /.form-group -->
-                        <div class="form-group clearfix">
+                      <!--  <div class="form-group clearfix">
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="OnboardingStatus-checkbox" checked>
                               <label for="checkboxPrimary1">Onboarding Status</label>
                            </div>
-                        </div>
+                        </div>  -->
                         <!-- /.form-group -->
                      </div>
                      <div class="col-md-3">
-                        <div>
+                      <!--  <div>
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="checkboxPrimary1" checked>
                               <label for="checkboxPrimary1">Placeholder</label>
-                           </div>
-                        </div>
+                           </div> 
+                        </div> -->
                         <!-- /.form-group -->
-                        <div class="form-group clearfix">
+                     <!--   <div class="form-group clearfix">
                            <div class="icheck-primary d-inline">
                               <input type="checkbox" id="checkboxPrimary1" checked>
                               <label for="checkboxPrimary1">Placeholder</label>
                            </div>
-                        </div>
+                        </div>  -->
                         <!-- /.form-group -->
                      </div>
                      <!-- /.col -->
@@ -583,7 +612,7 @@ function download_table_as_csv(table_id, separator = ',') {
                               <div class="card-body table-responsive p-0">
                                  <table id="mytable" class="table table-hover text-nowrap">
                                     <thead>
-                                       <th id="CaseID-header"> ID </th>
+                                       <th id="NoteID-header"> ID </th>
                                        <th id="NoteTitle-header">Note Title</th>
                                        <th id="GeneralDescription-header">General Description</th>
                                        <th id="DetailedDescription-header">Detailed Description</th>
